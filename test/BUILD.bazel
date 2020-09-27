@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "atomic-backoff",
+    srcs = ["atomic-backoff.cc"],
+    deps = [
+        "//:atomic-backoff",
+        "@gtest//:gtest_main",
+    ],
+)
