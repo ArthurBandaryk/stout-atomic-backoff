@@ -12,9 +12,9 @@
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 def repos(external = True, repo_mapping = {}):
-    if external and "com_github_3rdparty_stout_atomic-backoff" not in native.existing_rules():
+    if external and "com_github_3rdparty_stout_atomic_backoff" not in native.existing_rules():
         git_repository(
-            name = "com_github_3rdparty_stout_atomic-backoff",
+            name = "com_github_3rdparty_stout_atomic_backoff",
             remote = "https://github.com/3rdparty/stout-atomic-backoff",
             commit = "",
             shallow_since = " +0200",
