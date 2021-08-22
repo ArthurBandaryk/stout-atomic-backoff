@@ -5,7 +5,7 @@
 TEST(AtomicBackoffTest, Backoff)
 {
   size_t i = 0;
-  for (stout::atomic_backoff b; ; b.pause()) {
+  for (stout::AtomicBackoff b; ; b.pause()) {
     if (i < 10) {
       break;
     }

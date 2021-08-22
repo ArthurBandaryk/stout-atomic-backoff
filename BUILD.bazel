@@ -2,6 +2,9 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 
 cc_library(
     name = "atomic-backoff",
-    hdrs = ["stout/atomic-backoff.h"],
+    hdrs = [
+        "stout/atomic-backoff.h",
+        "stout/thread.h",
+    ],
     visibility = ["//visibility:public"],
 )
