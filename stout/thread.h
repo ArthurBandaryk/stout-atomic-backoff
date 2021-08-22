@@ -5,7 +5,7 @@
 namespace stout {
 namespace this_thread {
 
-void pause() {
+inline void pause() {
 #if defined(_M_X64) || defined(__x86_64__)
   __asm__ volatile("pause"
                    :
