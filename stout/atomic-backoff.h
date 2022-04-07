@@ -2,12 +2,17 @@
 
 #include "stout/thread.h"
 
+////////////////////////////////////////////////////////////////////////
+
 namespace stout {
+
+////////////////////////////////////////////////////////////////////////
 
 class AtomicBackoff {
  public:
   AtomicBackoff(size_t pauses_before_yield = 16, size_t pauses = 1)
-    : pauses_before_yield(pauses_before_yield), pauses(pauses) {}
+    : pauses_before_yield(pauses_before_yield),
+      pauses(pauses) {}
 
   AtomicBackoff(const AtomicBackoff&) = delete;
   AtomicBackoff& operator=(const AtomicBackoff&) = delete;
@@ -27,4 +32,8 @@ class AtomicBackoff {
   size_t pauses;
 };
 
+////////////////////////////////////////////////////////////////////////
+
 } // namespace stout
+
+////////////////////////////////////////////////////////////////////////
