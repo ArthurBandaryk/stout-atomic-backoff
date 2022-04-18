@@ -1,0 +1,30 @@
+name: Check Code Style
+
+on: [push, pull_request]
+
+jobs:
+  check_code_style:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ["ubuntu-latest"]
+
+    steps:
+      # We should checkout the repo with submodules
+      # cause we need to have symlink to 
+      # dev-tools/.clang-format file for all code
+      # style checks.
+      - uses: actions/checkout@v2
+        with: 
+          submodules: 'recursive'
+
+      # Call the composite action to check files
+      # for correct code style. This action (action.yml)
+      # is in `dev-tools` submodule.
+      - uses: ./dev-tools/check-code-style
+        with: 
+          os: ${{matrix.os}}
+
+      - name: Debug using tmate (if failure)
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
